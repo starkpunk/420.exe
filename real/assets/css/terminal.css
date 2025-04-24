@@ -1,0 +1,99 @@
+body {
+  background-color: #000;
+  background-image: url('https://transparenttextures.com/patterns/noise.png');
+  color: #00ff00;
+  font-family: 'Courier New', monospace;
+  margin: 0;
+  padding: 40px 0;
+}
+
+
+
+.cmd-window {
+    width: 600px;
+    height: 400px;
+    background-color: black;
+    border: 2px solid #fff;
+    box-shadow: inset -1px -1px 0 #666, inset 1px 1px 0 #fff;
+    display: flex;
+    flex-direction: column;
+    margin: 60px auto;
+    overflow: hidden;
+  }
+  @media (max-width: 700px) {
+    .cmd-window {
+      width: 100%;
+      height: auto;
+      min-height: 300px;
+      font-size: 12px;
+    }
+  
+    .cmd-body {
+      color: #00ff00;
+      padding: 14px 16px;
+      overflow-y: auto;
+      flex-grow: 1;
+      font-size: 14px;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      font-family: 'Courier New', monospace;
+    }
+    
+    
+    .cmd-button {
+      font-size: 12px;
+      padding: 4px 8px;
+    }
+  
+    .cmd-header {
+      font-size: 11px;
+      padding: 4px 6px;
+    }
+  }
+  
+  .cmd-header {
+    background-color: #000080;
+    color: white;
+    padding: 2px 8px;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .cmd-header span {
+    font-weight: bold;
+  }
+  
+  .cmd-body {
+    color: #00ff00;
+    padding: 10px;
+    overflow-y: auto;
+    flex-grow: 1;
+    font-size: 14px;
+    line-height: 1.2;
+    white-space: pre-wrap;
+  }
+  
+  .cmd-button {
+    background-color: #000;
+    color: #00ff00;
+    border: 1px solid #00ff00;
+    padding: 5px 10px;
+    margin: 20px;
+    cursor: pointer;
+    align-self: flex-start;
+  }
+  
+  ::-webkit-scrollbar {
+    width: 12px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #ccc;
+    border: 2px solid #fff;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #fff;
+  }

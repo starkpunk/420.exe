@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>what if</title>
+  <link rel="stylesheet" href="/assets/css/terminal.css">
+  <style>
+    body {
+      background-color: #000;
+      color: #00ff00;
+      font-family: 'Courier New', monospace;
+      margin: 0;
+      padding: 40px 0;
+    }
+    .cmd-window {
+      background: black;
+      border: 2px solid #fff;
+      box-shadow: inset -1px -1px 0 #666, inset 1px 1px 0 #fff;
+      width: 80%;
+      max-width: 700px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+    }
+    .cmd-header {
+      background-color: #000080;
+      color: white;
+      padding: 4px 10px;
+      font-size: 14px;
+    }
+    .cmd-body {
+      color: #00ff00;
+      padding: 10px;
+      overflow-y: auto;
+      font-size: 14px;
+      line-height: 1.5;
+      min-height: 300px;
+      white-space: pre-wrap;
+    }
+    .cmd-button {
+      background: none;
+      border: 1px solid #00ff00;
+      color: #00ff00;
+      padding: 5px 12px;
+      margin: 12px;
+      font-family: 'Courier New', monospace;
+      font-size: 13px;
+      cursor: pointer;
+      align-self: flex-start;
+    }
+    .cmd-button:hover {
+      background-color: #00ff00;
+      color: black;
+    }
+  </style>
+</head>
+<body>
+  <div class="cmd-window">
+    <div class="cmd-header">
+      <span>C:\WINDOWS\System420\weed.exe</span>
+    </div>
+    <div class="cmd-body" id="cmdOutput">
+MicroHigh Weedows XB [Version 4.20.069]
+(C) Copyright 1889-1945 apadayaclub all rights rolled.
+C:\Users\Jokobra>
+    </div>
+    <button id="whatIfButton" class="cmd-button" onclick="generateWhatIf()">click me, daddy.</button>
+  </div>
+
+  <audio id="clickSound" preload="auto"></audio>
+
+  <script>
+    const whatIfs = [
+      "what if Tuhan itu cuma AI yang lagi di train, dan kita semua data uji coba yang error?",
+      "what if orgasme itu sebenarnya tombol reset otak biar kita ga nyadar hidup ini gak punya makna?",
+      "what if rumus cinta itu sebenernya persamaan kuadrat, tapi kita semua lupa nyari akarnya?",
+      "what if surga itu sebenernya orgy eternal tapi lo masuk neraka karena suka ghosting?",
+      "what if bumi ini sekolah remedial buat jiwa yang nggak lulus reinkarnasi?",
+      "what if alien udah pernah datang, tapi mereka langsung pulang karena kita masih debat mana yang bener: nasi atau roti?",
+      "what if semua patung dewa kuno itu sebenernya hasil fanart dari makhluk dimensi ke-7 yang nganggur?",
+      "what if sperma tercepat bukan yang paling pintar, tapi yang paling nekat?",
+      "what if angka 0 sebenernya bukan kosong, tapi pintu keluar dari simulasi ini?",
+      "what if semua tokoh besar sejarah itu sebenernya satu orang yang kena time loop tapi gabisa move on?",
+      "what if semua mimpi basah sebenernya pesan terenkripsi dari versi kamu di timeline lain?",
+      "what if dosa itu cuma algoritma kompensasi dari otak biar kita tetep merasa penting?",
+      "what if lubang hitam itu titik putus cinta pertama alam semesta?",
+      "what if setiap kentut mengandung jejak DNA alien yang ditanam waktu kita tidur?",
+      "what if nabi-nabi zaman dulu cuma influencer early access yang kebetulan viral?",
+      "what if tiap kali kamu ngaceng, ada satu versi kamu di semesta lain yang ngerasa dicintai?",
+      "what if Big Bang itu bukan awal, tapi kejadian pas Tuhan bersin dan lupa mute mic?",
+      "what if orgasme itu bentuk teleportasi setengah gagal ke realitas paralel yang lebih bahagia?",
+      "what if semesta ini cuma diary milik bocah 13 tahun dari dimensi ke-9 yang lagi overthinking?",
+      "what if semua angka ganjil itu makhluk hidup tapi kita ga cukup peka buat ngobrol?",
+      "what if waktu itu jam rusak yang terus kita paksain buat ngukur rasa?",
+      "what if monyet pertama yang megang batu bukan belajar alat, tapi lagi coba bunuh diri?",
+      "what if setiap bayi sebenernya bawa blueprint alam semesta, tapi lupa semua pas nonton Baby Shark?",
+      "what if ciuman itu bukan bentuk cinta, tapi sistem sinkronisasi memori antar tubuh biologis?",
+      "what if semesta ini game Sims, dan kamu satu-satunya karakter yang nyadar AI-nya bodoh?",
+      "what if semua yang kita anggap wibu sebenernya avatar kesadaran level tinggi yang lupa log out?",
+      "what if lubang di kaos kaki itu jalan keluar dari realita yang kita jahit ulang tiap pagi?",
+      "what if sperma yang kalah justru masuk ke dimensi lain dan bikin versi kamu yang lebih bahagia?",
+      "what if masturbasi itu ritual kuno buat ngusir dewa haus validasi?",
+      "what if kamu pernah jadi dewa, tapi turun derajat karena ngeluh di story terlalu sering?"
+    ];
+
+    const sounds = [
+      "/assets/sounds/yes-daddy.mp3",
+      "/assets/sounds/ah-cute.mp3",
+      "/assets/sounds/no_.mp3",
+      "/assets/sounds/suprise_ahhh.mp3",
+      "/assets/sounds/uh.mp3"
+    ];
+
+    let isTyping = false;
+
+    function generateWhatIf() {
+      if (isTyping) return;
+
+    
+      const soundIndex = Math.random() < 0.5 ? 0 : Math.floor(Math.random() * sounds.length);
+      const soundFile = sounds[soundIndex];
+
+      const clickSound = document.getElementById("clickSound");
+      clickSound.src = soundFile;
+      clickSound.currentTime = 0;
+      clickSound.volume = 1;
+      clickSound.play();
+
+      const output = document.getElementById('cmdOutput');
+      const prompt = "\nC:\\Users\\Jokobra> ";
+      const text = whatIfs[Math.floor(Math.random() * whatIfs.length)];
+      let index = 0;
+      isTyping = true;
+      output.innerText += prompt;
+
+      const typingInterval = setInterval(() => {
+        if (index < text.length) {
+          output.innerText += text.charAt(index);
+          output.scrollTop = output.scrollHeight;
+          index++;
+        } else {
+          clearInterval(typingInterval);
+          isTyping = false;
+        }
+      }, 30);
+    }
+  </script>
+</body>
+</html>
